@@ -9,12 +9,10 @@ inputs:
   GITHUB_TOKEN:
     description: "GitHub Token to authenticate"
     required: true
-    default: "${{ secrets.GITHUB_TOKEN }}"
 
   OPENAI_API_KEY:
     description: "OpenAI API Key to use GPT"
     required: true
-    default: "${{ secrets.OPENAI_API_KEY }}"
 
   openai_api_model:
     description: "OpenAI API Model to use GPT"
