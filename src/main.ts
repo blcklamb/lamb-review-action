@@ -52,6 +52,7 @@ async function getDiff(owner: string, repo: string, pullRequestNumber: number) {
     owner,
     repo,
     pull_number: pullRequestNumber,
+    mediaType: { format: "diff" },
   });
 
   return JSON.stringify(diffResponse.data);
@@ -76,7 +77,6 @@ async function getAIResponse(
   try {
     const response = await openai.chat.completions.create({
       ...queryConfig,
-      response_format: { type: "json_object" },
       messages: [
         {
           role: "system",

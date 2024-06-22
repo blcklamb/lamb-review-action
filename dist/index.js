@@ -39828,6 +39828,7 @@ function getDiff(owner, repo, pullRequestNumber) {
             owner,
             repo,
             pull_number: pullRequestNumber,
+            mediaType: { format: "diff" },
         });
         return JSON.stringify(diffResponse.data);
     });
@@ -39844,7 +39845,7 @@ function getAIResponse(prompt) {
             presence_penalty: 0,
         };
         try {
-            const response = yield openai.chat.completions.create(Object.assign(Object.assign({}, queryConfig), { response_format: { type: "json_object" }, messages: [
+            const response = yield openai.chat.completions.create(Object.assign(Object.assign({}, queryConfig), { messages: [
                     {
                         role: "system",
                         content: prompt,
