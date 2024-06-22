@@ -34,15 +34,5 @@ outputs:
     description: "Indicates whether the code review passed or failed"
 
 runs:
-  using: "node18"
+  using: "node20"
   main: "dist/index.js"
-
-# Example usage of the action
-example:
-  - uses: blcklamb/LambReviewAction@v1
-    with:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      openai_api_model: "gpt-4"
-      review_rules: '{"max_line_length":80,"no_console_log":true}'
-      exclude_files: "docs/**,tests/**"
